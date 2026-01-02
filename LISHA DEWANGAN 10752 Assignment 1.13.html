@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Conditions & Loops</title>
+<style>
+body{font-family:Arial}
+.box{width:300px;border:1px solid #ccc;padding:15px}
+input{width:100%;padding:5px;margin:8px 0}
+button{background:#1e88e5;color:#fff;border:0;padding:6px 10px;margin:3px}
+#out{margin-top:10px;padding:8px;border:1px solid #ddd;min-height:40px}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h3>JavaScript Conditions & Loops</h3>
+Enter a Number:
+<input type="number" id="n" placeholder="Example: 5">
+
+<button onclick="cond()">Condition Result</button>
+<button onclick="loop(1)">For Loop</button>
+<button onclick="loop(2)">While Loop</button>
+<button onclick="loop(3)">Do-While Loop</button>
+
+<div id="out">Output will appear here...</div>
+</div>
+
+<script>
+function g(){
+    let n=document.getElementById("n").value;
+    return n==""?null:+n;
+}
+
+function cond(){
+    let n=g();
+    if(n==null) return o("Please enter number");
+    o(n>20?"Greater than 20":n>=10?"≥ 10":"Less than 10");
+}
+
+function loop(t){
+    let n=g(),i=1,s="";
+    if(n==null) return o("Please enter number");
+    if(t==1) for(;i<=n;i++) s+=i+"<br>";
+    if(t==2) while(i<=n) s+=i+++"<br>";
+    if(t==3) do{ s+=i+++"<br>"; }while(i<=n);
+    o(s);
+}
+
+function o(x){ document.getElementById("out").innerHTML=x; }
+</script>
+
+</body>
+</html>

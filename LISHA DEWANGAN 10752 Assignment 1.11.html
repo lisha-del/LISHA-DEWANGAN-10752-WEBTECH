@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+
+    <h3>Basic Calculator</h3>
+
+    <input type="number" id="n1" placeholder="First number"><br><br>
+    <input type="number" id="n2" placeholder="Second number"><br><br>
+
+    <button onclick="calc('+')">Add</button>
+    <button onclick="calc('-')">Subtract</button>
+    <button onclick="calc('*')">Multiply</button>
+    <button onclick="calc('/')">Divide</button>
+
+    <p id="res"></p>
+
+    <script>
+        function calc(op) {
+            let a = Number(document.getElementById("n1").value);
+            let b = Number(document.getElementById("n2").value);
+
+            if (op == '/' && b === 0) {
+                document.getElementById("res").innerText = "Cannot divide by zero!";
+            } else {
+                document.getElementById("res").innerText =
+                "Result: " + eval(a + op + b);
+            }
+        }
+    </script>
+
+</body>
+</html>

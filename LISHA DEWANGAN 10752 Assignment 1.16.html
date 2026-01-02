@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show / Hide & Toggle Class</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .box {
+      width: 250px;
+      padding: 20px;
+      background: lightblue;
+      margin-top: 15px;
+      display: none;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .active {
+      background: lightgreen;
+      color: darkgreen;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button onclick="toggleBox()">Show / Hide Box</button>
+
+  <div id="myBox" class="box">
+    Hello! I am a box 🙂
+  </div>
+
+  <script>
+    function toggleBox() {
+      let box = document.getElementById("myBox");
+
+      if (box.style.display === "none" || box.style.display === "") {
+        box.style.display = "block";
+        box.classList.add("active");
+      } else {
+        box.style.display = "none";
+        box.classList.remove("active");
+      }
+    }
+  </script>
+
+</body>
+</html>

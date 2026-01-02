@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Listeners Demo</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    #box {
+      width: 200px;
+      height: 200px;
+      background: lightblue;
+      text-align: center;
+      line-height: 200px;
+      margin-top: 20px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .hover {
+      background: lightgreen;
+      transform: scale(1.1);
+    }
+
+    .active {
+      background: orange;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="start">Add Events</button>
+  <button id="stop">Remove Events</button>
+
+  <div id="box">Hover / Press Key</div>
+
+  <p>Press <b>Enter</b> to activate box</p>
+
+  <script>
+    const box = document.getElementById("box");
+    const startBtn = document.getElementById("start");
+    const stopBtn = document.getElementById("stop");
+
+    // Mouse events
+    function mouseOver() {
+      box.classList.add("hover");
+    }
+
+    function mouseOut() {
+      box.classList.remove("hover");
+    }
+
+    // Keyboard event
+    function keyPress(event) {
+      if (event.key === "Enter") {
+        box.classList.toggle("active");
+      }
+    }
+
+    // Add event listeners
+    function addEvents() {
+      box.addEventListener("mouseover", mouseOver);
+      box.addEventListener("mouseout", mouseOut);
+      document.addEventListener("keydown", keyPress);
+    }
+
+    // Remove event listeners
+    function removeEvents() {
+      box.removeEventListener("mouseover", mouseOver);
+      box.removeEventListener("mouseout", mouseOut);
+      document.removeEventListener("keydown", keyPress);
+    }
+
+    startBtn.addEventListener("click", addEvents);
+    stopBtn.addEventListener("click", removeEvents);
+  </script>
+
+</body>
+</html>

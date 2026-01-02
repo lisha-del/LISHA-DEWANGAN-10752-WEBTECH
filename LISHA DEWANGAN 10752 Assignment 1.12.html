@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Conditions & Loops</title>
+    <style>
+        body{font-family: Arial; padding:20px;}
+        .box{width:350px; padding:15px; background: #F2F2F2; border-radius: 2px;}
+        input, button {margin-top:3px; padding:6px;}
+        button{cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3>Conditions & Loops</h3>
+        <input id="num" type="number" placeholder="Enter number">
+        <button onclick="cond()">Condition</button>
+        <button onclick="forLoop()">For</button>
+        <button onclick="whileLoop()">While</button>
+        <button onclick="doLoop()">Do-While</button>
+        <p id="out">Output will appear here...</p>
+    </div>
+    <script>
+        function cond(){
+            let n = num.value;
+            if(n > 10) out.innerHTML = "Greater than 10";
+            else if(n == 10) out.innerHTML = "Equal to 10";
+            else out.innerHTML = "Less than 10";
+        }
+
+        function forLoop(){
+            let n = num.value, t="";
+            for(let i=1; i<=n; i++) t += i + " ";
+            out.innerHTML = t;
+        }
+
+        function whileLoop(){
+            let n = num.value, i=1, t="";
+            while(i<=n){t += i + " "; i++;}
+            out.innerHTML = t;
+        }
+
+        function doLoop(){
+            let n = num.value, i=1, t="";
+            do{t += i + " "; i++;} while(i<=n);
+            out.innerHTML = t;
+        }
+    </script>
+</body>
+</html>
